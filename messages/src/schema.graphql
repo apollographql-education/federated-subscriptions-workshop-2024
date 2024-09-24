@@ -18,6 +18,11 @@ type Mutation {
   sendMessage(message: NewMessageInput!): Message
 }
 
+type Subscription {
+  # Start a new subscription for messages in a particular conversation, with an optional timestamp cursor to replay from
+  listenForMessageInConversation(id: ID!): Message
+}
+
 type Conversation {
   id: ID!
   # The messages belonging to the conversation
